@@ -1,35 +1,21 @@
-@import './base.css';
+:root {
+  --airbean-brown: #2f2926;
+  --airbean-d-green: #0e927d;
+  --airbean-l-green: #38846d;
+  --airbean-pink: #f3e4e1;
+  --airbean-orange: #e5674e;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 #app {
-  max-width: 1280px;
+  max-width: 500px;
+  height: 100vh;
   margin: 0 auto;
-  padding: 2rem;
   font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+  background-color: var(--airbean-l-green);
 }
