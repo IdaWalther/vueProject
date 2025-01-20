@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NavPage from '../components/NavPage.vue'
 import { onMounted, ref } from 'vue'
-import '../assets/main.css'
+import '@/assets/main.scss'
 import { useCartStore } from '../stores/store.ts'
 
 const coffeeList = ref([] as Coffee[])
@@ -53,37 +53,3 @@ onMounted(() => {
     </article>
   </div>
 </template>
-
-<style>
-.menuPage {
-  background-color: var(--airbean-pink);
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.menuPage-title {
-  text-align: center;
-}
-.coffeeMenu {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0.4rem 1rem;
-}
-
-.addBtn {
-  background-color: var(--airbean-brown);
-  border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  margin-right: 1rem;
-  padding: 0.4rem;
-}
-
-.strong {
-  font-weight: bold;
-}
-</style>

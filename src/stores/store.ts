@@ -9,18 +9,26 @@ interface Coffee {
   price: number
   rating: number
   image: string
+  quantity: number
 }
 
 export const useCartStore = defineStore('cart', () => {
   const number = ref(0)
   const coffee = ref([] as Coffee[])
   const price = ref(0)
-  const calculatePrice = computed(() => number.value * 2)
+  //const calculatePrice = computed(() => number.value * 2)
   function addToCart(newCoffee: Coffee) {
     number.value++
-    coffee.value.push(newCoffee)
-    price.value += newCoffee.price
+    const existingCoffee = coffee.value.find((coffeeItem) => coffeeItem.id === newCoffee.id)
+    if (existingCoffee) {
+      existingCoffee.quantity++
+      price.value += newCoffee.price
+    } else {
+      newCoffee.quantity = 1
+      coffee.value.push(newCoffee)
+      price.value += newCoffee.price
+    }
   }
 
-  return { number, coffee, price, addToCart, calculatePrice }
+  return { number, coffee, price, addToCart }
 })

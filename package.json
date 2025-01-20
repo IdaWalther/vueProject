@@ -5,18 +5,21 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "vue-tsc -b && vite build && sass --style=compressed --quiet ./src/styles/index.scss ./dist/es/prizmstyles.css  ",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "build:style": "style-dictionary build --config ./scripts/generateVariables.js --verbose",
+    "build:style2": "node ./scripts/buildVariables.js"
   },
   "dependencies": {
     "pinia": "^2.3.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
-    "wave-ui": "^3.18.0"
+    "wave-ui": "^3.18.0",
+    "sass-embedded": "^1.80.4"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
@@ -30,6 +33,7 @@
     "naive-ui": "^2.41.0",
     "npm-run-all2": "^7.0.2",
     "prettier": "^3.3.3",
+    "style-dictionary": "^4.3.0",
     "typescript": "~5.6.3",
     "vite": "^6.0.5",
     "vite-plugin-vue-devtools": "^7.6.8",

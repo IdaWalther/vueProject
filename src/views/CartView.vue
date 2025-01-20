@@ -14,6 +14,8 @@ console.log('Cart')
       <li v-for="items in cartStore.coffee" :key="items.id">
         {{ items.title }}
         {{ items.price }}
+        <p>Total Number: {{ items.quantity }}</p>
+        <hr />
       </li>
     </ul>
     <p>Totaltpris: {{ cartStore.price }}</p>
